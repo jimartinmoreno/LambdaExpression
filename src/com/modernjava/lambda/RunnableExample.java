@@ -1,5 +1,7 @@
 package com.modernjava.lambda;
 
+import static java.lang.System.*;
+
 public class RunnableExample {
     public static void main(String[] args) {
         //Runnable Traditional example
@@ -9,7 +11,7 @@ public class RunnableExample {
                 int sum = 0;
                 for (int i = 0; i < 10; i++)
                     sum += i;
-                System.out.println("Traditional: " + sum);
+                out.println("Traditional: " + sum);
             }
         };
         new Thread(runnable).start();
@@ -19,7 +21,7 @@ public class RunnableExample {
             int sum = 0;
             for (int i = 0; i < 10; i++)
                 sum += i;
-            System.out.println("Runnable Lambda: " + sum);
+            out.println("Runnable Lambda: " + sum);
         };
 
         new Thread(runnable1).start();
@@ -29,7 +31,7 @@ public class RunnableExample {
             int sum = 0;
             for (int i = 0; i < 10; i++)
                 sum = sum + i;
-            System.out.println("Thread Lambda: " + sum);
+            out.println("Thread Lambda: " + sum);
 
         }).start();
     }

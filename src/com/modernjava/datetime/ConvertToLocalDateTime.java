@@ -11,10 +11,10 @@ public class ConvertToLocalDateTime {
         LocalDateTime localDateTime = date.toInstant().
                 atZone(ZoneId.systemDefault()).toLocalDateTime();
         System.out.println("localDateTime = " + localDateTime);
-        
+
         java.sql.Date dateSql = new java.sql.Date(System.currentTimeMillis());
         LocalDate localDate = dateSql.toLocalDate();
         System.out.println("localDate = " + localDate);
-        
+
     }
 }

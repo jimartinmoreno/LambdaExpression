@@ -6,7 +6,7 @@ import java.time.temporal.ChronoUnit;
 
 public class LocalTimeModifyExample {
     public static void main(String[] args) {
-        LocalTime localTime = LocalTime.now();;
+        LocalTime localTime = LocalTime.now();
         System.out.println("localTime.plusHours(2) = " + localTime.plusHours(2));
         System.out.println("localTime.plusMinutes(22) = " + localTime.plusMinutes(22));
         System.out.println("localTime.plusSeconds(30) = " + localTime.plusSeconds(30));
@@ -18,9 +18,7 @@ public class LocalTimeModifyExample {
         System.out.println("localTime.with(LocalTime.MIDNIGHT) = "
                 + localTime.with(LocalTime.MIDNIGHT));
         System.out.println("localTime.with(ChronoField) = "
-                + localTime.with(ChronoField.HOUR_OF_DAY,4));
-
-
+                + localTime.with(ChronoField.HOUR_OF_DAY, 4));
 
 
     }

@@ -12,9 +12,9 @@ public class HttpClientExample {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://www.ldapsoft.com"))
                 .build();
-        
+
         HttpResponse<String> response = client.send(
-                request,HttpResponse.BodyHandlers.ofString());
+                request, HttpResponse.BodyHandlers.ofString());
 
         System.out.println("response.body() = " + response.body());
 

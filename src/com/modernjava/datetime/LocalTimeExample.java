@@ -7,14 +7,14 @@ public class LocalTimeExample {
     public static void main(String[] args) {
         LocalTime localTime = LocalTime.now();
         System.out.println("localTime = " + localTime);
-        
-        localTime = LocalTime.of (15, 18);
+
+        localTime = LocalTime.of(15, 18);
         System.out.println("localTime = " + localTime);
-        
+
         localTime = LocalTime.of(15, 18, 22);
         System.out.println("localTime = " + localTime);
 
-        localTime = LocalTime.of(15,18,23,22222222);
+        localTime = LocalTime.of(15, 18, 23, 22222222);
         System.out.println("localTime = " + localTime);
 
         //get
@@ -28,7 +28,6 @@ public class LocalTimeExample {
         System.out.println("localTime.get(ChronoField) = " +
                 localTime.get(ChronoField.MINUTE_OF_DAY));
 
-        
-        
+
     }
 }

@@ -12,7 +12,7 @@ public class DurationExample {
         LocalDateTime localDateTime1 = LocalDateTime.now().plusHours(2);
         Duration duration = Duration.between(localDateTime, localDateTime1);
         System.out.println("duration.toHours() = " + duration.toHours());
-        
+
         duration = Duration.ofHours(3);
         System.out.println("duration.toMinutes() = " + duration.toMinutes());
 
@@ -25,6 +25,6 @@ public class DurationExample {
         LocalDate localDate1 = LocalDate.now().plusDays(1);
         duration = Duration.between(localDate, localDate1);
         System.out.println("duration = " + duration);
-        
+
     }
 }

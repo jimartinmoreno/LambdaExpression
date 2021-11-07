@@ -9,8 +9,9 @@ import java.util.stream.LongStream;
 
 public class StreamPerformanceExample1 {
     static long tokenCount = 50000;
+
     public static void main(String[] args) {
-        int loop=20;
+        int loop = 20;
         long result = measurePerformance(StreamPerformanceExample1
                 ::sortSequentialStream, loop);
         System.out.println("Time taken to process sort in sequential: " + result + " msecs");
@@ -19,16 +20,16 @@ public class StreamPerformanceExample1 {
 
     }
 
-    public static long measurePerformance(Supplier<Long> supplier, int numberofTimes){
+    public static long measurePerformance(Supplier<Long> supplier, int numberofTimes) {
         long startTime = System.currentTimeMillis();
-        for (int i=0;i<numberofTimes;i++)
+        for (int i = 0; i < numberofTimes; i++)
             supplier.get();
         return System.currentTimeMillis() - startTime;
     }
 
-    public static long sortSequentialStream(){
-        List<RandomTokens> randomTokens = LongStream.rangeClosed(0,tokenCount)
-                .mapToObj((i) ->{
+    public static long sortSequentialStream() {
+        List<RandomTokens> randomTokens = LongStream.rangeClosed(0, tokenCount)
+                .mapToObj((i) -> {
                     return new RandomTokens(i, ThreadLocalRandom.current()
                             .nextLong(tokenCount));
                 }).collect(Collectors.toList());
@@ -37,9 +38,9 @@ public class StreamPerformanceExample1 {
 
     }
 
-    public static long sortParallelStream(){
-        List<RandomTokens> randomTokens = LongStream.rangeClosed(0,tokenCount)
-                .parallel().mapToObj((i) ->{
+    public static long sortParallelStream() {
+        List<RandomTokens> randomTokens = LongStream.rangeClosed(0, tokenCount)
+                .parallel().mapToObj((i) -> {
                     return new RandomTokens(i, ThreadLocalRandom.current()
                             .nextLong(tokenCount));
                 }).collect(Collectors.toList());
@@ -48,7 +49,7 @@ public class StreamPerformanceExample1 {
     }
 }
 
-class RandomTokens{
+class RandomTokens {
     long id;
     long tokens;
 

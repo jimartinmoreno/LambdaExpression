@@ -9,11 +9,11 @@ public class LocalDateTimeExample {
     public static void main(String[] args) {
         LocalDateTime localDateTime = LocalDateTime.now();
         System.out.println("localDateTime = " + localDateTime);
-        
+
         //of
-        localDateTime = LocalDateTime.of(2022, 1, 12, 12,12,12);
+        localDateTime = LocalDateTime.of(2022, 1, 12, 12, 12, 12);
         System.out.println("localDateTime = " + localDateTime);
-        
+
         localDateTime = LocalDateTime.of(LocalDate.now(), LocalTime.now());
         System.out.println("localDateTime = " + localDateTime);
 
@@ -30,14 +30,10 @@ public class LocalDateTimeExample {
         System.out.println("localDateTime.plusHours(4) = " + localDateTime.plusHours(4));
         System.out.println("localDateTime.plusMinutes(60) = " + localDateTime.plusMinutes(60));
         System.out.println("localDateTime.with(ChronoField) = "
-                + localDateTime.with(ChronoField.HOUR_OF_DAY,3));
+                + localDateTime.with(ChronoField.HOUR_OF_DAY, 3));
         System.out.println("localDateTime.with(LocalTime) = "
                 + localDateTime.with(LocalTime.MIDNIGHT));
 
 
-
-
-
-        
     }
 }

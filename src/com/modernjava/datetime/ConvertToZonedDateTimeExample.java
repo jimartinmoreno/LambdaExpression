@@ -13,8 +13,8 @@ public class ConvertToZonedDateTimeExample {
                 atZone(ZoneId.of("America/New_York"));
         System.out.println("zonedDateTime = " + zonedDateTime);
         System.out.println(localDateTime.atOffset(ZoneOffset.ofHours(-10)));
-        
+
     }
-    
-    
+
+
 }

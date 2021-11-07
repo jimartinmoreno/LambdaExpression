@@ -9,9 +9,9 @@ public class LocalDateTimeToDateAndTimeExample {
         LocalDateTime localDateTime = LocalDateTime.now();
         System.out.println("localDateTime.toLocalDate() = " + localDateTime.toLocalDate());
         System.out.println("localDateTime.toLocalTime() = " + localDateTime.toLocalTime());
-        
+
         localDateTime = LocalDateTime.of(LocalDate.now(), LocalTime.now());
         System.out.println("localDateTime = " + localDateTime);
-        
+
     }
 }

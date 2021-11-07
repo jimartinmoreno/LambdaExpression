@@ -12,12 +12,12 @@ public class LocalDateExample {
         //using day of the year
         localDate = LocalDate.ofYearDay(2018, 35);
         System.out.println("localDate = " + localDate);
-        
+
         //
         localDate = LocalDate.of(2018, 05, 23);
         System.out.println("localDate = " + localDate);
 
-        localDate = LocalDate.now(); 
+        localDate = LocalDate.now();
 
         //Get Methods
         System.out.println("localDate.getMonth = " + localDate.getMonth());

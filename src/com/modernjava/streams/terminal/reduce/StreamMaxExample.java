@@ -1,4 +1,4 @@
-package com.modernjava.streams.reduce;
+package com.modernjava.streams.terminal.reduce;
 
 import com.modernjava.funcprogramming.Instructor;
 import com.modernjava.funcprogramming.Instructors;

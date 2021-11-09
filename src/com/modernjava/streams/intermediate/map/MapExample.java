@@ -1,12 +1,11 @@
-package com.modernjava.streams.map;
+package com.modernjava.streams.intermediate.map;
 
 import com.modernjava.funcprogramming.Instructor;
 import com.modernjava.funcprogramming.Instructors;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
+
+import static java.lang.System.out;
 
 public class MapExample {
     public static void main(String[] args) {
@@ -15,8 +14,9 @@ public class MapExample {
                 .map(Instructor::getName)
                 .map(String::toUpperCase)
                 .sorted()
-                .collect(Collectors.toList());
+                .toList();
+                //.collect(Collectors.toList());
 
-        System.out.println(instructorNames);
+        out.println(instructorNames);
     }
 }

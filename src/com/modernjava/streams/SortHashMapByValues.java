@@ -10,6 +10,7 @@ public class SortHashMapByValues {
 
         sortingInAscendingOrder();
         sortingInAscendingOrderLongApproach();
+        sortingInDescendingOrder();
     }
 
     private static void sortingInAscendingOrder() {

@@ -1,4 +1,4 @@
-package com.modernjava.streams.reduce;
+package com.modernjava.streams.terminal.reduce;
 
 import java.util.Arrays;
 import java.util.List;

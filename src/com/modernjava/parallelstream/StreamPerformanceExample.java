@@ -1,24 +1,27 @@
 package com.modernjava.parallelstream;
 
-import java.util.function.Supplier;
+import java.util.function.IntSupplier;
 import java.util.stream.IntStream;
+
+import static java.lang.System.currentTimeMillis;
+import static java.lang.System.out;
 
 public class StreamPerformanceExample {
     public static void main(String[] args) {
         int loop = 20;
-        long result = measurePerformance(StreamPerformanceExample::sumSequentialStream, loop);
-        System.out.println("Time Taken to process sum in sequential: "
-                + result + "in msecs");
-        result = measurePerformance(StreamPerformanceExample::sumParallelStream, loop);
-        System.out.println("Time Takes to process sum in Parallel: " + result + " in msecs");
-
+        IntSupplier sequentialSupplier = StreamPerformanceExample::sumParallelStream;
+        IntSupplier parallelSupplier = () -> StreamPerformanceExample.sumParallelStream();
+        long result = measurePerformance(sequentialSupplier, loop);
+        out.println("Time Taken to process sum in sequential: " + result + " msecs");
+        result = measurePerformance(parallelSupplier, loop);
+        out.println("Time Takes to process sum in Parallel: " + result + " msecs");
     }
 
-    public static long measurePerformance(Supplier<Integer> supplier, int numberOfTimes) {
-        long startTime = System.currentTimeMillis();
+    public static long measurePerformance(IntSupplier supplier, int numberOfTimes) {
+        long startTime = currentTimeMillis();
         for (int i = 0; i < numberOfTimes; i++)
-            supplier.get();
-        return System.currentTimeMillis() - startTime;
+            supplier.getAsInt();
+        return currentTimeMillis() - startTime;
     }
 
     public static int sumSequentialStream() {

@@ -1,4 +1,4 @@
-package com.modernjava.streams.grouping;
+package com.modernjava.streams.terminal.grouping;
 
 import com.modernjava.funcprogramming.Instructor;
 import com.modernjava.funcprogramming.Instructors;
@@ -6,6 +6,8 @@ import com.modernjava.funcprogramming.Instructors;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static java.lang.System.out;
 
 public class GroupingExample3 {
     public static void main(String[] args) {
@@ -16,19 +18,35 @@ public class GroupingExample3 {
                 .collect(Collectors.groupingBy(String::length, LinkedHashMap::new, Collectors
                         .filtering(s -> s.contains("e"), Collectors.toList())));
 
-        System.out.println("result = " + result);
-        System.out.println("------------------");
+        out.println("result = " + result);
+
+        result = name.stream()
+                .filter(s -> s.contains("e"))
+                .collect(Collectors.groupingBy(String::length, LinkedHashMap::new, Collectors.toList()));
+
+        out.println("result = " + result);
+        out.println("------------------");
 
         //instructor grouping them by Senior(>10) and Junior(<10) and filter them
         //on online courses
-        LinkedHashMap<String, List<Instructor>> instructorByExpAndOnline = Instructors.getAll()
-                .stream().collect(Collectors.groupingBy(instructor ->
+        LinkedHashMap<String, List<Instructor>> instructorByExpAndOnline = Instructors.getAll().stream()
+                .collect(Collectors.groupingBy(instructor ->
                                 instructor.getYearsOfExperience() > 10 ? "SENIOR" : "JUNIOR",
                         LinkedHashMap::new, Collectors.filtering(s -> s.isOnlineCourses(),
                                 Collectors.toList())));
 
         instructorByExpAndOnline.forEach((key, value) -> {
-            System.out.println("key  = " + key + " value = " + value);
+            out.println("key  = " + key + " value = " + value);
+        });
+
+        instructorByExpAndOnline = Instructors.getAll().stream()
+                .filter(Instructor::isOnlineCourses)
+                .collect(Collectors.groupingBy(instructor ->
+                                instructor.getYearsOfExperience() > 10 ? "SENIOR" : "JUNIOR",
+                        LinkedHashMap::new, Collectors.toList()));
+
+        instructorByExpAndOnline.forEach((key, value) -> {
+            out.println("key  = " + key + " value = " + value);
         });
     }
 }

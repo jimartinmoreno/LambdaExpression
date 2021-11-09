@@ -1,5 +1,7 @@
 package com.modernjava.defaults;
 
+import static java.lang.System.*;
+
 public class MultipleIneritanceExample implements InterfaceA, InterfaceB, InterfaceC {
     public static void main(String[] args) {
         MultipleIneritanceExample multipleIneritanceExample = new MultipleIneritanceExample();
@@ -10,8 +12,8 @@ public class MultipleIneritanceExample implements InterfaceA, InterfaceB, Interf
 
     // implemented class first
     // the sub interface that extends the interface
-
+    @Override
     public void sumA(int num1, int num2) {
-        System.out.println("MultipleIneritanceExample.sumA" + (num1 + num2));
+        out.println("MultipleIneritanceExample.sumA" + (num1 + num2));
     }
 }

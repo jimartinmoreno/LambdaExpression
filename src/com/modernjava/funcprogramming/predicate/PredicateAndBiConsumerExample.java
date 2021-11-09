@@ -26,5 +26,18 @@ public class PredicateAndBiConsumerExample {
             if (predicate1.and(predicate2).test(instructor))
                 biConsumer.accept(instructor.getName(), instructor.getCourses());
         });
+
+        System.out.println("------------------------");
+
+        instructors.stream()
+                .filter(predicate1.and(predicate2))
+                .forEach(instructor -> biConsumer.accept(instructor.getName(), instructor.getCourses()));
+
+        System.out.println("------------------------");
+
+        instructors.stream()
+                .filter(predicate1)
+                .filter(predicate2)
+                .forEach(instructor -> biConsumer.accept(instructor.getName(), instructor.getCourses()));
     }
 }

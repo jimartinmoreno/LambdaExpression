@@ -1,9 +1,11 @@
-package com.modernjava.streams.collectors_comparators;
+package com.modernjava.streams.terminal.collectors;
 
 import com.modernjava.funcprogramming.Instructor;
 import com.modernjava.funcprogramming.Instructors;
 
 import java.util.stream.Collectors;
+
+import static java.lang.System.out;
 
 public class CountingExample {
     public static void main(String[] args) {
@@ -12,14 +14,14 @@ public class CountingExample {
         long count = Instructors.getAll().stream()
                 .filter(Instructor::isOnlineCourses)
                 .count();
-        System.out.println(count);
+        out.println(count);
 
 
         //collectors.counting
         count = Instructors.getAll().stream()
                 .filter(Instructor::isOnlineCourses)
                 .collect(Collectors.counting());
-        System.out.println("count = " + count);
+        out.println("count = " + count);
 
     }
 }

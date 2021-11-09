@@ -2,6 +2,8 @@ package com.modernjava.optional;
 
 import java.util.Optional;
 
+import static java.lang.System.*;
+
 public class OptionalOrElseThrowExample {
     public static void main(String[] args) {
         //orElse
@@ -9,16 +11,33 @@ public class OptionalOrElseThrowExample {
         numbers[0] = 1;
         Optional<Integer> number = Optional.ofNullable(numbers[0]);
         int result = number.orElse(-1);
-        System.out.println("result = " + result);
+        out.println("result = " + result);
 
-        //orElseGet
+        //orElseGet you expecify a lambda supplier
         result = number.orElseGet(() -> -1);
-        System.out.println("result - orElseGet = " + result);
+        out.println("result - orElseGet = " + result);
+
+        //orElse
+        number = Optional.ofNullable(numbers[1]);
+        result = number.orElse(-1);
+        out.println("result orElse = " + result);
+
+
+        //or If a value is present, returns an Optional describing the value, otherwise returns an
+        // Optional produced by the supplying function
+        Optional<Integer> resultOp = number.or(() -> Optional.ofNullable(numbers[0]));
+        out.println("result - or = " + resultOp);
+
+        number = Optional.ofNullable(numbers[1]);
+        resultOp = number.or(() -> Optional.ofNullable(-1));
+        out.println("result - or = " + resultOp);
+
+
 
         //orElseThrow
         try {
             result = number.orElseThrow(Exception::new);
-            System.out.println("result orElseThrow = " + result);
+            out.println("result orElseThrow = " + result);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -8,19 +8,23 @@ public class OptionalExample {
         // int number = numbers[1].intValue();
         // System.out.println("number = " + number);
 
+        /**
+         * Optional.of: es obligatorio proporcionar un valor si no genera un nullPointerException
+         */
         Optional<String> optionalString = Optional.of("Hello World");
-        System.out.println("optionalString = " + optionalString);
+        String s = optionalString.isPresent() ? optionalString.get() : "Empty";
+        System.out.println("optionalString = " + s);
+
 
         System.out.println("getWords:" + getWords());
-
+        getWords().ifPresent(System.out::println);
     }
 
     public static Optional<String> getWords() {
         String[] words = new String[10];
-        Optional<String> optionalS = Optional.ofNullable(words[1]);
-        if (optionalS.isPresent())
-            return optionalS;
-        else
-            return Optional.empty();
+        /**
+         * Optional.ofNullable: no es obligatorio proporcionar un valor, no genera un nullPointerException
+         */
+        return Optional.ofNullable(words[1]);
     }
 }

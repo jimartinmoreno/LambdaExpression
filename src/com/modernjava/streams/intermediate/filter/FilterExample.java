@@ -1,11 +1,12 @@
-package com.modernjava.streams.filter;
+package com.modernjava.streams.intermediate.filter;
 
 import com.modernjava.funcprogramming.Instructor;
 import com.modernjava.funcprogramming.Instructors;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static java.lang.System.out;
 
 public class FilterExample {
     public static void main(String[] args) {
@@ -14,9 +15,10 @@ public class FilterExample {
         List<Instructor> list = Instructors.getAll().stream()
                 .filter(instructor -> instructor.getYearsOfExperience() > 10)
                 .sorted(Comparator.comparing(Instructor::getName))
-                .collect(Collectors.toList());
+                .toList();
+                //.collect(Collectors.toList());
 
-        list.forEach(System.out::println);
+        list.forEach(out::println);
 
     }
 }

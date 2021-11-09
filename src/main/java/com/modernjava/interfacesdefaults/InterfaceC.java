@@ -1,4 +1,4 @@
-package com.modernjava.defaults;
+package com.modernjava.interfacesdefaults;
 
 public interface InterfaceC {
     default void sumC(int num1, int num2) {

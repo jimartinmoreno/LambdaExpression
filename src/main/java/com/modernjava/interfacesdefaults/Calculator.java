@@ -1,4 +1,4 @@
-package com.modernjava.defaults;
+package com.modernjava.interfacesdefaults;
 
 public interface Calculator {
     static int multiply(int num1, int num2) {

@@ -1,4 +1,4 @@
-package com.modernjava.defaults;
+package com.modernjava.interfacesdefaults;
 
 import static java.lang.System.*;
 

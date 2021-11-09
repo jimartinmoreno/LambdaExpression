@@ -1,4 +1,4 @@
-package com.modernjava.defaults;
+package com.modernjava.interfacesdefaults;
 
 public interface InterfaceB extends InterfaceA {
     default void sumB(int num1, int num2) {

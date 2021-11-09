@@ -18,6 +18,9 @@ public class AsyncHttpClient {
                 client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
                         .thenApply(HttpResponse::body)
                         .thenAccept(System.out::println);
-        response.get();
+
+        System.out.println("----------------------------");
+        System.out.println(response.get());
+        System.out.println("----------------------------");
     }
 }

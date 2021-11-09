@@ -20,8 +20,5 @@ public class VarWithLambdaExample {
 
         BiFunction<Integer, Integer, Integer> sum = (var x, var y) -> x + y;
         System.out.println("sum.apply(2,4) = " + sum.apply(2, 4));
-
-
     }
-
 }

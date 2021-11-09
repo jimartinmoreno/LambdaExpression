@@ -7,6 +7,7 @@ import java.util.List;
 
 public class TypeInterferenceExample {
 
+
     public static void main(String[] args) {
         //String
         //String name = "Mike";
@@ -18,10 +19,15 @@ public class TypeInterferenceExample {
 
         HashMap<Integer, String> map = new HashMap<>();
         var map1 = new HashMap<Integer, String>();
+        System.out.println("map1 = " + map1);
 
         //integer array
         int[] numbers = {1, 2, 3, 4, 5};
         var numbers1 = new int[]{1, 2, 3, 4, 5};
+
+        //integer array
+        String[] str = {"1", "2", "3", "4", "5"};
+        var str1 = new String[]{"1", "2", "3", "4", "5"};
 
         //list
         List<String> names = new ArrayList<>();
@@ -53,8 +59,6 @@ public class TypeInterferenceExample {
 
         var idiomOfTheDay = "A blessing in disguise";
         printString(idiomOfTheDay);
-
-
     }
 
     public static void printString(String toPrint) {

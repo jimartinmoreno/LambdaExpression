@@ -5,15 +5,15 @@ public class MultiLineTextBlockExample {
         String st1 = """
                 Hello World
                 Using 
-                text blocks !""";
+                text blocks!!!""";
 
         System.out.println("st1 = " + st1);
 
         String phrase = """
                 { 
-                employee : "Mike", 
-                employeeId: 10001; 
-                employeeType: FT
+                    employee : "Mike", 
+                    employeeId: 10001; 
+                    employeeType: FT
                 }
                 """;
         System.out.println("phrase = " + phrase);

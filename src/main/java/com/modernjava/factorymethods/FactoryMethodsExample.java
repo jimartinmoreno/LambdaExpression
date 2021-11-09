@@ -16,19 +16,35 @@ public class FactoryMethodsExample {
 
         //factory methods of Java 9
         List<String> names2 = List.of("Syed", "Mike", "Jenny");
-        out.println("names2 = " + names2);
+        out.println("list = " + names2);
         Set<String> set = Set.of("Syed", "Mike", "Jenny");
         out.println("set = " + set);
         Map<String, String> map = Map.of("Grade1", "Syed", "Grade2", "Mike");
         out.println("map = " + map);
-        //modify the list. Fails because is an unmodifiable list
+
+        /**
+         * modify the list. Fails because is an unmodifiable list
+         */
         //names2.add("Gene");
+
+        /**
+         * Fails because is set and you set duplicated elements
+         */
         // set= Set.of("Syed", "Syed", "Mike");
+
         //names2.sort(Comparator.naturalOrder());
         //out.println("names2 = " + names2);
         //names.sort(Comparator.naturalOrder());
 
-        names2 = names2.stream().sorted(Comparator.naturalOrder()).toList();
+        Comparator<String> naturalOrder = Comparator.naturalOrder();
+        Comparator<String> stringLenghComparator = Comparator.comparingInt(String::length);
+        Comparator<String> naturalOrderReversed = Comparator.reverseOrder();
+        
+        names2 = names2.stream().sorted(naturalOrder).toList();
+        out.println("names2 = " + names2);
+        names2 = names2.stream().sorted(naturalOrderReversed).toList();
+        out.println("names2 length = " + names2);
+        names2 = names2.stream().sorted(stringLenghComparator).toList();
         out.println("names2 = " + names2);
 
     }
